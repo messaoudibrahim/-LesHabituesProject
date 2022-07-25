@@ -26,20 +26,27 @@ abstract class WebServiceAbstract
      */
     protected $dataObject;
     /**
+     * @var MapperDataInterface
+     */
+    protected $mapperData;
+
+    /**
      * WebserviceAbstract constructor.
      * @param $apiUrl
-     * @param $apiParams
+     * @param MapperDataInterface $mapperData
+     * @param array $apiParams
      */
-    public function __construct($apiUrl, $apiParams)
+    public function __construct($apiUrl, MapperDataInterface $mapperData ,$apiParams = [])
     {
         $this->dataObject = [];
         $this->apiUrl = $this->formatApiUrl($apiUrl, $apiParams);
         $this->apiParams = $apiUrl;
+        $this->mapperData = $mapperData;
     }
 
     /**
      * Get the data from api
-     * @return array<Object>
+     * @return mixed
      */
     public abstract function getData();
     /**
