@@ -40,7 +40,7 @@ abstract class WebServiceAbstract
     {
         $this->dataObject = [];
         $this->apiUrl = $this->formatApiUrl($apiUrl, $apiParams);
-        $this->apiParams = $apiUrl;
+        $this->apiParams = $apiParams;
         $this->mapperData = $mapperData;
     }
 
